@@ -1,0 +1,269 @@
+/* ===== RESET BÁSICO ===== */
+* {
+    box-sizing: border-box;
+    /* Selector *: El asterisco selecciona TODOS los elementos de la página.
+    Propiedad box-sizing: border-box: Por defecto los navegadores calculan
+    el tamaño de una caja SIN incluir el padding ni el borde.
+    Con border-box le decimos: "el padding y borde van ADENTRO del tamaño".
+    Ejemplo: un div de width:200px con padding:20px mide 200px en total, no 240px.
+    Es buena práctica ponerlo siempre al inicio. */
+}
+
+/* ===== CUERPO DE LA PÁGINA ===== */
+body {
+    font-family: Arial, sans-serif;
+    /* Propiedad font-family: Define la fuente del texto de TODA la página.
+    Arial es la fuente principal.
+    sans-serif es el plan B: si Arial no está instalada en el dispositivo,
+    el navegador usa cualquier fuente sans-serif disponible.
+    Siempre se pone una fuente genérica al final como seguro. */
+
+    background-color: #f5f5f5;
+    /* Propiedad background-color: Color de fondo de toda la página.
+    #f5f5f5 es un gris muy clarito en código hexadecimal.
+    Los colores hex van de #000000 (negro) a #ffffff (blanco).
+    Este gris suave es más agradable a la vista que el blanco puro. */
+
+    display: flex;
+    /* Propiedad display: flex: Activa el modo Flexbox en el body.
+    Flexbox es un sistema de diseño moderno que permite alinear
+    y distribuir elementos hijos de forma sencilla.
+    Sin esto, centrar verticalmente era un dolor de cabeza. */
+
+    justify-content: center;
+    /* Propiedad justify-content: center: Centra los hijos HORIZONTALMENTE.
+    En Flexbox, justify-content controla el eje principal (horizontal por defecto). */
+
+    align-items: center;
+    /* Propiedad align-items: center: Centra los hijos VERTICALMENTE.
+    En Flexbox, align-items controla el eje secundario (vertical por defecto).
+    Junto con justify-content: center, el contenido queda centrado
+    perfecta mente en la pantalla, tanto horizontal como verticalmente. */
+
+    min-height: 100vh;
+    /* Propiedad min-height: 100vh: Altura mínima del 100% de la pantalla.
+    vh = viewport height (altura de la ventana del navegador).
+    100vh = toda la altura visible de la pantalla.
+    Con min-height (no height) si el contenido crece, el body crece también
+    sin cortar nada. Necesario para que el flex centre correctamente. */
+
+    margin: 0;
+    /* Propiedad margin: 0: Elimina el margen exterior por defecto del body.
+    Los navegadores añaden un margen al body automáticamente.
+    Con margin: 0 lo quitamos para tener control total del diseño. */
+}
+
+/* ===== CONTENEDOR PRINCIPAL ===== */
+.container {
+    /* Selector .container: El punto (.) indica que es una CLASE CSS.
+    Aplica estilos al elemento que tenga class="container" en el HTML.
+    Es el <div class="container"> que envuelve todo el formulario. */
+
+    background: white;
+    /* Propiedad background: white: Fondo blanco para la tarjeta del formulario.
+    Contrasta con el fondo gris del body, creando efecto de "tarjeta flotante". */
+
+    padding: 30px;
+    /* Propiedad padding: Espaciado INTERNO entre el borde del contenedor y su contenido.
+    padding: 30px aplica 30 píxeles en los 4 lados (arriba, derecha, abajo, izquierda).
+    Sin padding el contenido quedaría pegado al borde, se vería feo. */
+
+    border-radius: 8px;
+    /* Propiedad border-radius: Redondea las esquinas del contenedor.
+    8px es un redondeo sutil y moderno.
+    0px = esquinas rectas, 50% = círculo perfecto. */
+
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    /* Propiedad box-shadow: Agrega una sombra exterior al contenedor.
+    Valores: horizontal(0) vertical(2px) desenfoque(10px) color(rgba).
+    rgba(0,0,0,0.1) = negro con 10% de opacidad (sombra muy suave).
+    Esto crea el efecto de que la tarjeta "flota" sobre el fondo gris. */
+
+    width: 100%;
+    /* Propiedad width: 100%: Ocupa todo el ancho disponible de su padre.
+    Combinado con max-width abajo, funciona como diseño responsive. */
+
+    max-width: 450px;
+    /* Propiedad max-width: Ancho MÁXIMO del contenedor.
+    En pantallas grandes no crece más de 450px (se ve elegante y compacto).
+    En pantallas pequeñas (celular), width:100% toma el control y se adapta. */
+}
+
+/* ===== TÍTULO DEL FORMULARIO ===== */
+h2 {
+    /* Selector h2: Selecciona directamente la etiqueta <h2> del HTML.
+    No necesita punto porque no es una clase, es una etiqueta HTML. */
+
+    text-align: center;
+    /* Propiedad text-align: center: Centra el texto del título horizontalmente. */
+
+    margin-bottom: 20px;
+    /* Propiedad margin-bottom: Espacio EXTERIOR debajo del h2.
+    Crea separación entre el título y el primer input.
+    margin-bottom solo afecta el lado inferior, los otros lados no cambian. */
+
+    color: #333;
+    /* Propiedad color: Color del texto del título.
+    #333 es un gris oscuro, casi negro pero más suave que el negro puro (#000).
+    El negro puro en pantalla puede ser muy agresivo para los ojos. */
+}
+
+/* ===== TODOS LOS INPUTS ===== */
+input {
+    /* Selector input: Selecciona TODOS los <input> del HTML.
+    Aplica a: type="text", type="email" y type="password" a la vez.
+    Así no repetimos el mismo código 3 veces. */
+
+    width: 100%;
+    /* Propiedad width: 100%: Cada input ocupa todo el ancho del contenedor.
+    Se ven ordenados y alineados, como formularios profesionales. */
+
+    padding: 10px;
+    /* Propiedad padding: 10px: Espaciado interno del input.
+    Sin esto el texto quedaría pegado al borde del campo, incómodo para escribir. */
+
+    margin-bottom: 5px;
+    margin-top: 5px;
+    /* Quitamos el espacio de abajo y ponemos espacio arriba.
+    Así el espacio queda entre el input y el siguiente label,
+    no entre el label y su propio input. */
+
+    border: 1px solid #ccc;
+    /* Propiedad border: Borde del input.
+    1px = grosor, solid = línea continua, #ccc = gris claro.
+    Da forma visual al campo de texto. */
+
+    border-radius: 4px;
+    /* Propiedad border-radius: 4px: Esquinas ligeramente redondeadas.
+    Más sutil que el del container, solo para suavizar el input. */
+
+    font-size: 14px;
+    /* Propiedad font-size: Tamaño de la letra dentro del input.
+    14px es cómodo para leer sin ser demasiado grande. */
+}
+
+/* ===== BOTONES ===== */
+button {
+    padding: 10px 15px;
+    /* Propiedad padding con 2 valores: arriba/abajo(10px) izquierda/derecha(15px).
+    El botón tiene más espacio horizontal que vertical, se ve natural y clickeable.
+    Con 4 valores sería: arriba derecha abajo izquierda (sentido del reloj). */
+
+    background: blue;
+    /* Propiedad background: Color de fondo del botón.
+    'blue' es el nombre directo del color azul en CSS.
+    También se puede escribir como #0000FF o rgb(0,0,255). */
+
+    color: white;
+    /* Propiedad color: Color del TEXTO del botón.
+    Blanco sobre azul = alto contraste = fácil de leer. */
+
+    border: none;
+    /* Propiedad border: none: Elimina el borde por defecto del botón.
+    Los navegadores añaden un borde feo a los botones por defecto.
+    Con none lo quitamos para un look más limpio y moderno. */
+
+    border-radius: 4px;
+    /* Propiedad border-radius: 4px: Esquinas ligeramente redondeadas.
+    Hace el botón más moderno y menos cuadrado/anticuado. */
+
+    cursor: pointer;
+    /* Propiedad cursor: pointer: Cambia el cursor del mouse a una manita 👆
+    cuando pasa por encima del botón.
+    Sin esto el cursor sería la flecha normal y el usuario no sabría
+    que puede hacer clic. Es una pista visual importante. */
+
+    margin-right: 10px;
+    /* Propiedad margin-right: Espacio exterior a la derecha del botón.
+    Separa el botón "Enviar" del botón "Eliminar" para que no queden pegados. */
+}
+
+    /* ===== BOTÓN ELIMINAR ===== */
+    .btn-eliminar {
+    /* Selector button[value="eliminar"]: Selector de ATRIBUTO.
+    Selecciona únicamente el botón que tenga value="eliminar".
+    Los corchetes [] permiten seleccionar elementos por su atributo específico.
+    Así no afecta al botón "Enviar", solo al de "Eliminar". */
+
+    background: rgb(186, 52, 19);
+    /* Fondo blanco para diferenciarlo del botón azul de guardar. */
+
+    color: rgb(230, 224, 224);
+    /* Propiedad color: red: El texto "Eliminar" se ve en rojo.
+    Rojo es universalmente asociado con peligro o eliminación. */
+
+    border: 2px solid rgba(0, 255, 76, 0.971);
+    /* Propiedad border: Borde rojo de 2px para reforzar el estilo de alerta.
+    Reemplaza el border:none que tiene el estilo general de button. */
+    }
+
+    .accion-label {
+    font-weight: 10bold;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+
+/* ===== TABLA ===== */
+table {
+    width: 100%;
+    /* Propiedad width: 100%: La tabla ocupa todo el ancho del contenedor.
+    Así las columnas se distribuyen en todo el espacio disponible. */
+
+    margin-top: 20px;
+    /* Propiedad margin-top: Espacio exterior ARRIBA de la tabla.
+    Separa la tabla del formulario que está encima. */
+
+    border-collapse: collapse;
+    /* Propiedad border-collapse: collapse: Une los bordes de las celdas.
+    Sin esto cada celda tiene su propio borde y quedan bordes dobles entre celdas.
+    Con collapse los bordes se fusionan en uno solo, se ve mucho más limpio. */
+}
+
+/* ===== BORDES DE TABLA, ENCABEZADOS Y CELDAS ===== */
+table, th, td {
+    /* Selector múltiple: Se separan con coma para aplicar el mismo estilo a varios.
+    Aplica el borde a: la tabla completa, los <th> y los <td> a la vez. */
+
+    border: 1px solid #ddd;
+    /* Propiedad border: Borde fino de 1px en color gris claro (#ddd).
+    #ddd es un gris muy suave, más claro que #ccc.
+    Da estructura visual a la tabla sin ser muy agresivo. */
+}
+
+/* ===== CONTENIDO DE LAS CELDAS ===== */
+th, td {
+    /* Selector múltiple: Aplica a encabezados <th> y celdas <td> a la vez. */
+
+    padding: 10px;
+    /* Propiedad padding: 10px: Espaciado interno en cada celda.
+    Sin esto el texto quedaría pegado al borde de la celda, muy incómodo. */
+
+    text-align: center;
+    /* Propiedad text-align: center: Centra el texto dentro de cada celda.
+    Los datos y encabezados quedan alineados visualmente. */
+}
+
+/* ===== ENCABEZADOS DE TABLA ===== */
+th {
+    /* Selector th: Solo los encabezados <th>, no las celdas normales <td>. */
+
+    background-color: #f2f2f2;
+    /* Propiedad background-color: Fondo gris muy claro para los encabezados.
+    #f2f2f2 es casi blanco pero con un toque gris.
+    Diferencia visualmente la fila de títulos de las filas de datos. */
+}
+
+/* ===== ENLACES ===== */
+a {
+    /* Selector a: Selecciona todos los enlaces <a> de la página. */
+
+    text-decoration: none;
+    /* Propiedad text-decoration: none: Quita el subrayado de los enlaces.
+    Por defecto los navegadores subrayan todos los <a>.
+    Con none los dejamos limpios y les damos nuestro propio estilo. */
+
+    color: red;
+    /* Propiedad color: red: Color rojo para los enlaces.
+    Útil para los links de acción como "Eliminar" dentro de la tabla. */
+}
