@@ -88,7 +88,7 @@ Textos, imágenes, formularios, botones... todo va dentro de <body>. -->
         Como estamos en el mismo archivo, el PHP del inicio los procesa. -->
 
             <!-- Campo de nombre -->
-             <label for="name">Nombre</label>
+             <label for="name">ID Nombre</label>
             <!-- <label>: Etiqueta de texto descriptiva para un campo del formulario.
             Le dice al usuario qué debe escribir en ese input.
             Atributo for="name": Conecta el label con el input que tenga id="name".
