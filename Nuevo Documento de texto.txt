@@ -1,1 +1,10 @@
 http://localhost/ejercicio_profe/index.php
+http://localhost/phpmyadmin/ (Para ingresar a phpmyadmin) 
+http://localhost/proyecto_sena/conexion.php
+http://localhost/proyecto_sena/ofertas.php
+http://localhost/proyecto_sena/editar_oferta.php
+
+
+* para el profe:
+https://github.com/lopezoviedogersonjonnathan-rgb/proyecto_sena
+https://github.com/lopezoviedogersonjonnathan-rgb/proyecto_sena
