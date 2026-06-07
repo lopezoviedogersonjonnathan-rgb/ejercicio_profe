@@ -170,7 +170,7 @@ Textos, imágenes, formularios, botones... todo va dentro de <body>. -->
             Tener dos botones submit con el mismo name pero diferente value es
             una técnica clásica para saber cuál botón presionó el usuario. -->
 
-        </form>
+        <form action="insertar.php" method="POST">
         <!-- </form>: Cierra el formulario. Todo input dentro de estas etiquetas
         será enviado al hacer submit. Lo que esté fuera NO se envía. -->
         <table>
