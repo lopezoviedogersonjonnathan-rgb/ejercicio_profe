@@ -1,19 +1,29 @@
 <?php
-// 1. Definimos las credenciales de la base de datos (Las variables)
-$host = "127.0.0.1";     // La dirección de tu computadora local (localhost)
-$port = "3307";          // ¡CLAVE! El parqueadero que cambiamos en XAMPP para que funcione
-$user = "root";          // El usuario administrador por defecto de XAMPP
-$password = "";          // Por defecto en XAMPP viene sin contraseña, se deja vacío ""
-$dbname = "crud_app";    // El nombre exacto de la base de datos que acabas de guardar
 
-// 2. Intentamos hacer la conexión usando la extensión mysqli
-$conexion = mysqli_connect($host, $user, $password, $dbname, $port);
+/**
+ * ============================================================================
+ * CONEXIÓN A LA BASE DE DATOS (Estilo Orientado a Objetos)
+ * ============================================================================
+ * * ANALOGÍA: Estamos configurando un "teléfono inteligente" ($conn) para llamar 
+ * a la oficina de nuestra base de datos. Para que la llamada entre, necesitamos
+ * marcar el número correcto, identificarnos y decir a qué extensión vamos.
+ */
 
-// 3. Verificamos si la llamada telefónica falló o tuvo éxito
-if (!$conexion) {
-    die("Error de conexión a la base de datos: " . mysqli_connect_error());
-} else {
-    // Esto es solo para probar en el navegador; luego lo borraremos
-    echo "¡Conexión exitosa al puerto 3307, maestro!"; 
-}
-?>
+// 1. CREACIÓN DEL OBJETO DE CONEXIÓN
+// 'new mysqli()' es una clase nativa de PHP. Al usar 'new', estamos creando una 
+// instancia (un canal activo de comunicación). Recibe 5 parámetros obligatorios en nuestro caso:
+//
+//   - "localhost": El servidor. Significa "esta misma computadora".
+//   - "root":      El usuario administrador por defecto que crea XAMPP.
+//   - "":          La contraseña. Por defecto en XAMPP viene vacía, por eso son comillas solas.
+//   - "crud_app":  El nombre exacto de la base de datos a la que nos queremos meter.
+//   - 3307:        ¡El Puerto! Le indica a PHP que no use el puerto normal (3306), sino el 
+//                  nuevo "parqueadero" que habilitamos en XAMPP.
+$conn = new mysqli("localhost", "root", "", "crud_app", 3307);
+
+
+// 2. CONTROL DE ERRORES (La Validación)
+// '$conn->connect_error' es un atributo (una propiedad) de nuestra conexión.
+// Si la llamada telefónica falló por culpa de una clave mala o un puerto cerrado, 
+// este atributo guardará el mensaje del error. Si todo está bien, estará vacío (falso).
+if ($conn->connect_error) {
